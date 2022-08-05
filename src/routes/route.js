@@ -10,9 +10,13 @@ router.get('/test-me', function (req, res) {
 
 
     logger.welcome()
-    formatter.formatter()
-    helper.helper()
-    abc.printName()
+    formatter.trim()
+    formatter.changeToLowerCase()
+    formatter.changeToUpperCase()
+    helper.printDate()
+    helper.printMonth()
+    helper.getBatchInfo()
+    
     res.send('My second ever api!')
 });
 
