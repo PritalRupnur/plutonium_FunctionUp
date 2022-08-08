@@ -3,7 +3,8 @@ const lodash = require('lodash')
 const abc = require('../introduction/intro')
 const logger = require('../logger/logger.js')
 const formatter = require('../validator/formatter.js')
-const helper = require('../util/helper.js')
+const helper = require('../util/helper.js');
+const { fromPairs } = require('lodash');
 const router = express.Router();
 
 router.get('/test-me', function (req, res) {
@@ -21,6 +22,11 @@ router.get('/test-me', function (req, res) {
          let arr3 = ['10', '12', '65', '78','25']
          let arr4 = ['12', '68', '34', '98','65']
          let arr5 = ['12', '12', '34', '98','65']
+         let result3 = lodash.union(arr1, arr2, arr3, arr4, arr5)
+         console.log(result3)
+         let movies = [["horror","The Shining"],["drama","Titanic"],["thriller","Shutter Island"],["fantasy","Pans Labyrinth"]]
+         console.log(fromPairs(movies))
+
     logger.welcome()
     formatter.trim()
     formatter.changeToLowerCase()
