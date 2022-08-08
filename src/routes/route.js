@@ -14,7 +14,7 @@ router.get('/test-me', function (req, res) {
 
         let result = lodash.chunk(months,4)
         console.log(result)
-      let oddNumbers = ['1','3','5','7','9','11','13','15','17', '19']
+         let oddNumbers = ['1','3','5','7','9','11','13','15','17', '19', '21']
          let result2 = lodash.tail(oddNumbers)
          console.log(result2)
          let arr1 = ['12', '68', '34', '98','65']
