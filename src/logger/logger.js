@@ -1,4 +1,4 @@
-const batchName = "Plutonium"
+const Name = "Plutonium"
 
 let welcome = function() {
     console.log('Welcome to my appplication Im Prital a part of funtionup ')
