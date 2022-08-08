@@ -5,17 +5,18 @@ const router = express.Router();
 router.get('/test-me', function (req, res) {
     console.log('My batch is', abc.name)
     abc.printName()
-    logger.welcome()
+   // logger.welcome()
 
     res.send('My second ever api!')
 });
 
-router.get('/students', function (req, res){
-    let students = ['Sabiha', 'Neha', 'Akash']
-    res.send(students)
+router.get('/movies', function (req, res){
+    let movie = ['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins']
+    res.send(movie)
 })
 
-router.get('/student-details/:name', function(req, res){
+router.get('/movies/:indexNumber', function(req, res){
+    let movie1 = ['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins', 'Avengers The End Game']
     /*
     params is an attribute inside request that contains 
     dynamic values.
@@ -29,10 +30,45 @@ router.get('/student-details/:name', function(req, res){
     // JSON strigify function helps to print an entire object
     // We can use any ways to print an object in Javascript, JSON stringify is one of them
     console.log("This is the request "+ JSON.stringify(requestParams))
-    let studentName = requestParams.name
-    console.log('Name of the student is ', studentName)
+    let movieName = requestParams.indexNumber
+    //console.log('Name of the movie is ', movie1[movieName])
     
-    res.send('Dummy response')
+    //res.send(movie1[movieName])
+
+    if (movieName>=movie1.length){
+
+        console.log("Length Exceeded")
+        res.send("Length Exceeded")
+    }
+    else{
+        console.log('Name of the movie is ', movie1[movieName]) 
+        res.send(movie1[movieName])
+    }
 })
+
+
+
+router.get('/films', function (req, res) {
+
+    let films = [ {
+        "id": 1,
+        "name": "The Shining"
+       }, {
+        "id": 2,
+        "name": "Incendies"
+       }, {
+        "id": 3,
+        "name": "Rang de Basanti"
+       }, {
+        "id": 4,
+        "name": "Finding Nemo"
+       }]
+       
+    console.log(films)
+    
+   // logger.welcome()
+
+    res.send(films)
+});
 
 module.exports = router;
