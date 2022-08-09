@@ -109,6 +109,9 @@ router.get("/shoes", function(req, res){
     res.send("dummy response")
 })
 
+
+//solution1//
+
 router.get("/missingnumber", function(req, res){
     let arr1 = [1,2,3,4,5,7,8,9]
     let sum = 0
@@ -124,6 +127,8 @@ router.get("/missingnumber", function(req, res){
     res.send(  { data: missingNumber  }  )
 })
 
+
+//solution2//
 router.get("/missing_number", function(req, res){
     let arr2 = [21,22,23,24,26,27,28,29]
     let sum = 0
