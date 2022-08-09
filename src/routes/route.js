@@ -103,5 +103,41 @@ router.get("/films/:filmId", function(req, res){
        res.send("The film id doesn't match any movie")
 })
 
+router.get("/shoes", function(req, res){
+    let queryParams = req.query
+    let brand = queryParams.brand
+    res.send("dummy response")
+})
+
+router.get("/missingnumber", function(req, res){
+    let arr1 = [1,2,3,4,5,7,8,9]
+    let sum = 0
+    let sum1 = ((arr1.length + 1)*(arr1.length + 2))/2
+    for (let i = 0; i < arr1.length; i++) {
+        sum += arr1[i];
+    }
+    let missingNumber = sum1 - sum
+    console.log("MissingNumber is : ", missingNumber)
+
+   // let queryParams = req.query
+    //let brand = queryParams.brand
+    res.send(  { data: missingNumber  }  )
+})
+
+router.get("/missing_number", function(req, res){
+    let arr2 = [21,22,23,24,26,27,28,29]
+    let sum = 0
+    let sum1 = ((arr2.length + 1)/2)*((arr2[0]*2) + (arr2.length))
+    for (let i = 0; i < arr2.length; i++) {
+        sum += arr2[i];
+    }
+    let missingNumber1 = sum1 - sum
+    console.log("MissingNumber is : ", missingNumber1)
+
+   // let queryParams = req.query
+    //let brand = queryParams.brand
+    res.send(  { data: missingNumber1  }  )
+})
+
 module.exports = router;
 // adding this comment for no reason
