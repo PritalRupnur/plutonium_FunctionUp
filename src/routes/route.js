@@ -35,7 +35,7 @@ router.get('/movies/:indexNumber', function(req, res){
     
     //res.send(movie1[movieName])
 
-    if (movieName>=movie1.length){
+    if (movieName>movie1.length){
 
         console.log("Length Exceeded")
         res.send("Length Exceeded")
@@ -70,5 +70,45 @@ router.get('/films', function (req, res) {
 
     res.send(films)
 });
+
+
+router.get('/films/:filmId', function (req, res) {
+
+    let films = [ {
+        "id": 1,
+        "name": "The Shining"
+       }, {
+        "id": 2,
+        "name": "Incendies"
+       }, {
+        "id": 3,
+        "name": "Rang de Basanti"
+       }, {
+        "id": 4,
+        "name": "Finding Nemo"
+       }]
+
+       let requestParams = req.params
+       console.log("This is the request "+ JSON.stringify(requestParams))
+       let movieId = requestParams.filmId
+    //console.log(movieId)
+    //console.log(films[1])
+    //let i = films.length
+
+    if (movieId>films.length){
+
+        console.log("No such movie exist")
+        res.send("Length Exceeded")
+    }
+    else{
+        console.log('Index of the movie is ', JSON.stringify(requestParams)) 
+        res.send(films[movieId])
+    }
+    
+   // logger.welcome()
+
+    
+});
+
 
 module.exports = router;
