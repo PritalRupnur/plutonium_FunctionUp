@@ -112,7 +112,7 @@ router.get("/shoes", function(req, res){
 
 //solution1//
 
-router.get("/missingnumber", function(req, res){
+app.get("/missingnumber", function(req, res){
     let arr1 = [1,2,3,4,5,7,8,9]
     let sum = 0
     let sum1 = ((arr1.length + 1)*(arr1.length + 2))/2
