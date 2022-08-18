@@ -20,16 +20,11 @@ const cbBooks= async function (req, res) {
     let name_Author= req.params.author_name
     let allBooks2= await AuthorModel.find({author_name: name_Author})
 
-    // console.log(allBooks2)
-    // for( let i=0; i<=allBooks2.length; i++){
-    //     let id = allBooks2[i].author_id
-    //     console.log(id)
-    // }
    
     let book_name = await BookModel.find({author_id:allBooks2[0].author_id})
     console.log(book_name)
 
-   // let savedData= await AuthorModel.create(author_Author)
+   
     res.send({msg: book_name})
 }
 const updatedBookPrice= async function (req, res) {
@@ -57,26 +52,22 @@ const updatedBookPrice= async function (req, res) {
 
 const particularPriceBooks= async function (req, res) {
     let Author= await BookModel.find( { price : { $gte: 50, $lte: 100} } ).select({ author_id :1})
+    console.log(Author)
+    console.log(Author[0].author_id)
     let Authors = await AuthorModel.find()
     console.log(Authors)
     let Name = [];
     
        
-       // let name = await AuthorModel.find({author_id:Author[i].author_id})
-        let name1 =  Authors.forEach(a=>
-            {if (a.author_id=Author.author_id);{Name.push(a.author_name)}})
-        console.log(name1)
-        
-        
-      
-    
-    
-    
-    
-    res.send({msg:x})
-    
-   
-}
+       
+        let name1 =   Author.forEach(a=>
+          {Authors.forEach(auth=>{if(auth.author_id==a.author_id){
+            Name.push(auth.author_name);
+          }})})
+            
+        console.log(Name);
+     res.send({msg:Name})
+    }
 
 
 
