@@ -28,13 +28,15 @@ const createUser= async function (req, res) {
 
     //Set an attribute in request object
     req.anything = "everything"
-    
+    req.prital = "Rupnur"
+    console.log(req.prital)
     
     console.log("Request headers after modificatiom",req.headers)
     
     //Set a header in response
-    res.header('year','2022')
-    res.send({msg: "Hi"})
+    res.setheader('year',req.prital)
+   
+    res.send({msg: data})
 }
 
 const getUsersData= async function (req, res) {
