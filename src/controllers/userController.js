@@ -9,7 +9,7 @@ const createUser = async function (abcd, xyz) {
  
   let data = abcd.body;
   let savedData = await userModel.create(data);
-  console.log(abcd.newAtribute);
+  
   xyz.send({ msg: savedData });
 };
 
@@ -67,7 +67,7 @@ const updateUser = async function (req, res) {
   }
 
   let userData = req.body;
-  let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData);
+  let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData,{new:true});
   res.send({ status: updatedUser, data: updatedUser });
 };
 
