@@ -44,12 +44,7 @@ let uploadFile= async ( file) =>{
         console.log("file uploaded succesfully")
         return resolve(data.Location)
     })
-
-    // let data= await s3.upload( uploadParams)
-    // if( data) return data.Location
-    // else return "there is an error"
-
-   })
+  })
 }
 
 router.post("/write-file-aws", async function(req, res){
